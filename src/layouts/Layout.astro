@@ -1,0 +1,56 @@
+---
+import qai2Favicon from '../assets/images/8-bit-illustration-of-quantum-computer-with-clean-background.ico';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/ico" href={qai2Favicon} />
+		<meta name="generator" content={Astro.generator} />
+		<title>Q(AI)²</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 11, 18, 58;
+		--accent-light: 49, 74, 216;
+		--accent-dark: 6, 10, 35;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent-light)),
+			rgb(var(--accent-dark)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #0b123a;
+		background-size: 224px;
+	}
+	body {
+		margin: 0;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+</style>

@@ -1,0 +1,121 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import Footer from '../components/Footer.astro';
+import imageQuantumComputer from '../assets/images/8-bit-illustration-of-quantum-computer-with-clean-background-1200x1200.webp';
+import paperQuantumLaserCutting from '../assets/PDFs/A-Proposal-for-Physics-Informed-Quantum-Graph-Neural-Networks-for-Simulating-Laser-Cutting-Processes_INFORMATIK-2023.pdf';
+---
+
+<Layout title="QAI2">
+	<main>
+		<Image class="image-jumbo" src={imageQuantumComputer} alt="Illustration of a chip." ></Image>
+		<p class="information">
+			<span class="title-jumbo">Q(AI)<sup>2</sup></span><br />
+			<!-- <code></code> -->
+			<!-- <strong></strong> -->
+			Die metallverarbeitende Industrie stellt mit mehr als 390.000 Unternehmen und
+			rund 3,7 Mio. Angestellten den größten sekundären Sektor innerhalb der EU-28 dar
+			(vgl. Eurostat, Sectoral analysis of key indicators). Die Zerspanung repräsentiert
+			in diesem Bereich eine der wichtigsten Fertigungstechnologien. Zahlreiche deutsche
+			Schlüsselindustrien erwirtschaften einen Großteil ihrer Wertschöpfung am Produkt
+			mittels Zerspanung, wie bspw. der Werkzeug- und Formenbau, die Halbleiterindustrie
+			oder der Triebwerksbau. Auf Grund des hohen Stellenwerts der zerspanenden Fertigung
+			sind die betreffenden Unternehmen an einer kontinuierlichen Optimierung von
+			Zerspanprozessen hinsichtlich Qualität, Produktivität, Wirtschaftlichkeit und
+			zunehmend auch Nachhaltigkeit interessiert.
+		</p>
+		<ul role="list" class="link-card-grid">
+			<Card
+				href={paperQuantumLaserCutting}
+				title="A Proposal for Physics-Informed Quantum Graph Neural Networks for Simulating Laser Cutting Processes"
+				body="Publikation im Rahmen der Hawaii International Conference on System Sciences (HICSS 2024), Minitrack: Quantum Computing Applications"
+			/>
+			<Card
+				href={paperQuantumLaserCutting}
+				title="A Proposal for Physics-Informed Quantum Graph Neural Networks for Simulating Laser Cutting Processes"
+				body="Publikation im Rahmen der Hawaii International Conference on System Sciences (HICSS 2024), Minitrack: Quantum Computing Applications"
+			/>
+			<Card
+				href={paperQuantumLaserCutting}
+				title="A Proposal for Physics-Informed Quantum Graph Neural Networks for Simulating Laser Cutting Processes"
+				body="Publikation im Rahmen der Hawaii International Conference on System Sciences (HICSS 2024), Minitrack: Quantum Computing Applications"
+			/>
+			<Card
+				href={paperQuantumLaserCutting}
+				title="A Proposal for Physics-Informed Quantum Graph Neural Networks for Simulating Laser Cutting Processes"
+				body="Publikation im Rahmen der Hawaii International Conference on System Sciences (HICSS 2024), Minitrack: Quantum Computing Applications"
+			/>
+		</ul>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		width: 1200px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+		text-align: center;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+	}
+	.astro-a {
+		position: absolute;
+		top: -32px;
+		left: 50%;
+		transform: translatex(-50%);
+		width: 220px;
+		height: auto;
+		z-index: -1;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	.title-jumbo {
+		font-size: 4rem;
+	}
+	.image-jumbo {
+		height: auto;
+		max-width: 50%;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.information {
+		margin-bottom: 2rem;
+		border: 1px solid rgba(var(--accent-light), 25%);
+		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+		padding: 1.5rem;
+		border-radius: 8px;
+	}
+	.information code {
+		font-size: 0.8em;
+		font-weight: bold;
+		background: rgba(var(--accent-light), 12%);
+		color: rgb(var(--accent-light));
+		border-radius: 4px;
+		padding: 0.3em 0.4em;
+	}
+	.information strong {
+		color: rgb(var(--accent-light));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+		margin: 0;
+	}
+</style>
