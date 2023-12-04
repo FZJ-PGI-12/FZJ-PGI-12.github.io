@@ -4,48 +4,35 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Footer from '../components/Footer.astro';
 import imageQuantumComputer from '../assets/images/8-bit-illustration-of-quantum-computer-with-clean-background-1200x1200.webp';
-import paperQuantumLaserCutting from '../assets/PDFs/A-Proposal-for-Physics-Informed-Quantum-Graph-Neural-Networks-for-Simulating-Laser-Cutting-Processes_INFORMATIK-2023.pdf';
+
+import {
+	frontmatter as attributes
+} from '../content/pages/index.md';
 ---
 
-<Layout title="QAI2">
+<Layout
+	title={attributes.head.title}
+	description={attributes.head.description}
+	URLFavicon={attributes.head.URLFavicon}
+	URLOGTagWebsiteURL={attributes.head.URLOGTagWebsiteURL}
+	URLOGTagImage={attributes.head.URLOGTagImage}
+>
 	<main>
 		<Image class="image-jumbo" src={imageQuantumComputer} alt="Illustration of a chip." ></Image>
 		<p class="information">
-			<span class="title-jumbo">Q(AI)<sup>2</sup></span><br />
+			<span class="title-jumbo">{attributes.body.jumbo.title}</span><br />
+			{attributes.body.jumbo.information}
 			<!-- <code></code> -->
 			<!-- <strong></strong> -->
-			Die metallverarbeitende Industrie stellt mit mehr als 390.000 Unternehmen und
-			rund 3,7 Mio. Angestellten den größten sekundären Sektor innerhalb der EU-28 dar
-			(vgl. Eurostat, Sectoral analysis of key indicators). Die Zerspanung repräsentiert
-			in diesem Bereich eine der wichtigsten Fertigungstechnologien. Zahlreiche deutsche
-			Schlüsselindustrien erwirtschaften einen Großteil ihrer Wertschöpfung am Produkt
-			mittels Zerspanung, wie bspw. der Werkzeug- und Formenbau, die Halbleiterindustrie
-			oder der Triebwerksbau. Auf Grund des hohen Stellenwerts der zerspanenden Fertigung
-			sind die betreffenden Unternehmen an einer kontinuierlichen Optimierung von
-			Zerspanprozessen hinsichtlich Qualität, Produktivität, Wirtschaftlichkeit und
-			zunehmend auch Nachhaltigkeit interessiert.
 		</p>
 		<ul role="list" class="link-card-grid">
-			<Card
-				href={paperQuantumLaserCutting}
-				title="A Proposal for Physics-Informed Quantum Graph Neural Networks for Simulating Laser Cutting Processes"
-				body="Publikation im Rahmen der Hawaii International Conference on System Sciences (HICSS 2024), Minitrack: Quantum Computing Applications"
-			/>
-			<Card
-				href={paperQuantumLaserCutting}
-				title="A Proposal for Physics-Informed Quantum Graph Neural Networks for Simulating Laser Cutting Processes"
-				body="Publikation im Rahmen der Hawaii International Conference on System Sciences (HICSS 2024), Minitrack: Quantum Computing Applications"
-			/>
-			<Card
-				href={paperQuantumLaserCutting}
-				title="A Proposal for Physics-Informed Quantum Graph Neural Networks for Simulating Laser Cutting Processes"
-				body="Publikation im Rahmen der Hawaii International Conference on System Sciences (HICSS 2024), Minitrack: Quantum Computing Applications"
-			/>
-			<Card
-				href={paperQuantumLaserCutting}
-				title="A Proposal for Physics-Informed Quantum Graph Neural Networks for Simulating Laser Cutting Processes"
-				body="Publikation im Rahmen der Hawaii International Conference on System Sciences (HICSS 2024), Minitrack: Quantum Computing Applications"
-			/>
+			{attributes.papers.map((paper: any) => {
+				return <Card
+					href={paper.linkToPDF ? paper.linkToPDF : paper.linkToWebsite}
+					title={paper.title}
+					body={paper.description}
+				/>
+			})}
 		</ul>
 	</main>
 	<Footer />
